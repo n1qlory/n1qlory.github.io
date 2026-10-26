@@ -296,6 +296,11 @@ footer{font:500 12px Manrope,sans-serif;letter-spacing:0;margin-top:56px;padding
 .role{grid-template-columns:1fr auto;column-gap:16px}
 .role h3{grid-column:1;grid-row:1;align-self:end}.role p{grid-column:1;grid-row:2;align-self:start}
 .rolehead{grid-column:2;grid-row:1/3}
+
+/* ===== View counter ===== */
+#viewsWrap{display:inline-flex;align-items:center;gap:7px;color:var(--muted)}
+#viewsWrap[hidden]{display:none}
+#viewCount{color:#fff;font-variant-numeric:tabular-nums}
 </style></head>
 <body>
 <div id="intro" role="dialog" aria-modal="true" aria-labelledby="introTitle"><div class="introbox"><div class="introhead"><div class="sectionlabel">MUSIC</div></div><h2 id="introTitle">Choose a song</h2><p class="desc">Select a track, then enter the site to start playing.</p><div class="listtools"><span>Choose a track</span><button class="shuffle" id="introShuffle" type="button">Random</button></div><input class="search intro-search" id="introTrackSearch" type="search" placeholder="Search songs..." aria-label="Search songs"><div class="introtracks" id="introTrackList" aria-label="Choose a song"></div><button class="btn light enter" id="enter">Enter site</button><div class="introfoot">SELECT A SONG · THEN PRESS ENTER</div></div></div>
@@ -336,7 +341,7 @@ footer{font:500 12px Manrope,sans-serif;letter-spacing:0;margin-top:56px;padding
     </div>
   </div>
 </section>
-<section class="section" id="socials"><div class="sectiontop"><div><div class="sectionlabel">003 / ELSEWHERE</div><h2 class="title">Socials</h2></div><div class="note">SOCIAL LINKS ↗</div></div><div class="socialgrid"><a class="social" href="https://www.tiktok.com/@n1qlory" target="_blank" rel="noopener noreferrer"><div class="socialicon">♪</div><div><b>TikTok</b><small>@n1qlory</small></div><span class="arrow">↗</span></a><a class="social" href="https://www.youtube.com/@n1qlory" target="_blank" rel="noopener noreferrer"><div class="socialicon">▶</div><div><b>YouTube</b><small>@n1qlory</small></div><span class="arrow">↗</span></a><a class="social" href="https://discord.com/users/1316444904448327783" target="_blank" rel="noopener noreferrer"><div class="socialicon">⌁</div><div><b>Discord</b><small>n1qlory</small></div><span class="arrow">↗</span></a></div></section></main><footer><span>© <span id="footerYear"></span> n1qlory</span><a href="#home">Back to top</a></footer></div>
+<section class="section" id="socials"><div class="sectiontop"><div><div class="sectionlabel">003 / ELSEWHERE</div><h2 class="title">Socials</h2></div><div class="note">SOCIAL LINKS ↗</div></div><div class="socialgrid"><a class="social" href="https://www.tiktok.com/@n1qlory" target="_blank" rel="noopener noreferrer"><div class="socialicon">♪</div><div><b>TikTok</b><small>@n1qlory</small></div><span class="arrow">↗</span></a><a class="social" href="https://www.youtube.com/@n1qlory" target="_blank" rel="noopener noreferrer"><div class="socialicon">▶</div><div><b>YouTube</b><small>@n1qlory</small></div><span class="arrow">↗</span></a><a class="social" href="https://discord.com/users/1316444904448327783" target="_blank" rel="noopener noreferrer"><div class="socialicon">⌁</div><div><b>Discord</b><small>n1qlory</small></div><span class="arrow">↗</span></a></div></section></main><footer><span>© <span id="footerYear"></span> n1qlory</span><span id="viewsWrap" hidden><span class="dot"></span> <span id="viewCount">0</span> views</span><a href="#home">Back to top</a></footer></div>
 <script>
 const TRACKS = [
   { src: 'music/cigarettes.mp3',        title: 'Cigarettes',        artist: 'Juice WRLD' },
@@ -518,6 +523,26 @@ updateClock();
 setInterval(updateClock, 1000);
 
 loadTrack(0, false);
+
+
+// --- visitor counter (counts each browser once; fails quietly if the service is down)
+(async function viewCounter() {
+  const wrap = $('viewsWrap'), out = $('viewCount');
+  if (!wrap || !out) return;
+  const base = 'https://api.counterapi.dev/v1/n1qlory-site/visits';
+  let seen = false;
+  try { seen = localStorage.getItem('n1q_counted') === '1'; } catch (e) {}
+  try {
+    const r = await fetch(seen ? base : base + '/up');
+    if (!r.ok) throw 0;
+    const d = await r.json();
+    const n = Number(d.count);
+    if (!Number.isFinite(n)) throw 0;
+    out.textContent = n.toLocaleString('en-US');
+    wrap.hidden = false;
+    if (!seen) { try { localStorage.setItem('n1q_counted', '1'); } catch (e) {} }
+  } catch (e) { /* leave hidden */ }
+})();
 
 // --- highlight current section in the top bar
 (function navSpy() {
