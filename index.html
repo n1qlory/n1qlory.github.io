@@ -270,11 +270,32 @@ footer{font:500 12px Manrope,sans-serif;letter-spacing:0;margin-top:56px;padding
 .join svg{width:15px;height:15px}.join:hover{border-color:#c4b5ff}.join:active{transform:translate(2px,2px);box-shadow:0 0 0 #6f50d8}
 .join:focus-visible{outline:2px solid #c4b5ff;outline-offset:3px}
 @media(max-width:560px){.join span{display:none}.join{padding:7px 9px}.status{padding:5px 9px}}
+
+.presence{display:grid;gap:7px}.presence[hidden],.pres-activity[hidden],#handleFallback[hidden]{display:none}
+.pres-status{display:flex;align-items:center;gap:8px;font:600 12px Manrope,sans-serif;color:#cfc6f5}
+.pdot{width:8px;height:8px;border-radius:50%;background:#5b6070;display:inline-block}
+.pdot.online{background:var(--green);box-shadow:0 0 10px #91f3bd99}.pdot.idle{background:#f5c46b;box-shadow:0 0 10px #f5c46b80}.pdot.dnd{background:#ff7a8a;box-shadow:0 0 10px #ff7a8a80}
+.pres-activity{font:500 12px/1.45 Manrope,sans-serif;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* ===== Floating top bar ===== */
+.topbar{top:12px;height:58px;margin-top:12px;padding:0 10px 0 20px;border:1px solid #ffffff1c;border-radius:16px;background:linear-gradient(#ffffff0a,#ffffff04),#12101ce6;box-shadow:0 14px 36px -16px #000c,inset 0 1px 0 #ffffff10}
+.brand{display:flex;align-items:center;gap:11px;font-size:21px}
+.brand:before{content:"";width:12px;height:12px;background:var(--purple);box-shadow:3px 3px 0 #6f50d8}
+.nav{gap:4px;align-items:center}
+.nav a{padding:8px 14px;border:0;border-radius:10px;color:#a9a2c6;transition:background .15s,color .15s}
+.nav a:hover{background:#ffffff0d;color:#fff}
+.nav a.active{background:#a78bfa24;color:#fff}
+.nav a.navcta{margin-left:8px;padding:8px 16px;color:#150f26;background:#efeaff;border:2px solid #efeaff;box-shadow:2px 2px 0 #7c5cff;font-weight:700;transition:transform .08s,box-shadow .08s}
+.nav a.navcta:hover{background:#fff;color:#150f26}
+.nav a.navcta:active{transform:translate(2px,2px);box-shadow:0 0 0 #7c5cff}
+.nav a:focus-visible{outline:2px solid #c4b5ff;outline-offset:2px}
+@media(max-width:720px){.topbar{height:52px;padding:0 8px 0 14px;top:8px;margin-top:8px}.nav{gap:0}.nav a{padding:7px 9px}.nav a.navcta{display:none}}
+@media(max-width:430px){.nav a{padding:7px 7px}}
 </style></head>
 <body>
 <div id="intro" role="dialog" aria-modal="true" aria-labelledby="introTitle"><div class="introbox"><div class="introhead"><div class="sectionlabel">MUSIC</div></div><h2 id="introTitle">Choose a song</h2><p class="desc">Select a track, then enter the site to start playing.</p><div class="listtools"><span>Choose a track</span><button class="shuffle" id="introShuffle" type="button">Random</button></div><input class="search intro-search" id="introTrackSearch" type="search" placeholder="Search songs..." aria-label="Search songs"><div class="introtracks" id="introTrackList" aria-label="Choose a song"></div><button class="btn light enter" id="enter">Enter site</button><div class="introfoot">SELECT A SONG · THEN PRESS ENTER</div></div></div>
-<div class="wrap"><header class="topbar"><a class="brand" href="#home">n1qlory</a><nav class="nav"><a href="#home">Home</a><a href="#experience">Experience</a><a href="#music">Music</a><a href="#socials">Socials</a></nav></header>
-<main id="home"><section class="hero"><div><div class="eyebrow"><span class="dot"></span> Available on Discord</div><h1><span class="gradient">n1qlory</span></h1><p class="subtitle">Minecraft SS'er.</p><div class="tags"><span class="tag">SS'er at Breeze FFA</span><span class="tag">SS'er at Combat Tiers</span><span class="tag">SS'er at Bedrock Modify</span></div><div class="buttons"><a class="btn light" href="#experience">See experience</a><a class="btn" href="https://discord.com/users/1316444904448327783" target="_blank" rel="noopener noreferrer">Message on Discord</a></div></div><aside class="profile"><div class="profiletop"><img class="avatar" src="https://cdn.discordapp.com/avatars/1316444904448327783/f7fd0c6c3a2c7acf3f18d2953814494f.png?size=4096" alt="n1qlory profile picture" loading="eager" referrerpolicy="no-referrer"></div><h2>n1qlory</h2><div class="handle">@n1qlory on Minecraft</div><div class="line"></div></aside></section>
+<div class="wrap"><header class="topbar"><a class="brand" href="#home">n1qlory</a><nav class="nav"><a href="#home">Home</a><a href="#experience">Experience</a><a href="#music">Music</a><a href="#socials">Socials</a><a class="navcta" href="https://discord.com/users/1316444904448327783" target="_blank" rel="noopener noreferrer">Discord</a></nav></header>
+<main id="home"><section class="hero"><div><div class="eyebrow"><span class="dot"></span> Available on Discord</div><h1><span class="gradient">n1qlory</span></h1><p class="subtitle">Minecraft SS'er.</p><div class="tags"><span class="tag">SS'er at Breeze FFA</span><span class="tag">SS'er at Combat Tiers</span><span class="tag">SS'er at Bedrock Modify</span></div><div class="buttons"><a class="btn light" href="#experience">See experience</a><a class="btn" href="https://discord.com/users/1316444904448327783" target="_blank" rel="noopener noreferrer">Message on Discord</a></div></div><aside class="profile"><div class="profiletop"><img class="avatar" src="https://cdn.discordapp.com/avatars/1316444904448327783/f7fd0c6c3a2c7acf3f18d2953814494f.png?size=4096" alt="n1qlory profile picture" loading="eager" referrerpolicy="no-referrer"></div><h2>n1qlory</h2><div class="handle" id="handleFallback">Screen-sharing staff</div><div class="presence" id="presence" hidden><div class="pres-status"><i class="pdot" id="pdot"></i><span id="pstatus">Offline</span></div><div class="pres-activity" id="pact" hidden></div></div><div class="line"></div></aside></section>
 <section class="section" id="clock"><div class="sectiontop"><div><div class="sectionlabel">LIVE / TIMEZONES</div><h2 class="title">World clock</h2></div><div class="note">LOCAL TIME + WORLD</div></div><div class="clockgrid"><div class="clock"><div class="clockhead"><span>Your time</span></div><div class="clocktime" data-zone="local">--:--:--</div><div class="clockcity" id="localcity">Local timezone</div></div><div class="clock"><div class="clockhead"><span>United Kingdom</span></div><div class="clocktime" data-zone="Europe/London">--:--:--</div><div class="clockcity">London</div></div><div class="clock"><div class="clockhead"><span>United States</span></div><div class="clocktime" data-zone="America/New_York">--:--:--</div><div class="clockcity">New York</div></div><div class="clock"><div class="clockhead"><span>Japan</span></div><div class="clocktime" data-zone="Asia/Tokyo">--:--:--</div><div class="clockcity">Tokyo</div></div></div></section>
 <section class="section" id="experience"><div class="sectiontop"><div><div class="sectionlabel">001 / EXPERIENCE</div><h2 class="title">Experience</h2></div><div class="note">MINECRAFT COMMUNITIES</div></div><div class="rolegrid"><article class="role"><div class="rolehead"><span class="status">SS'er</span><a class="join" href="https://discord.gg/nd8PcnEFU" target="_blank" rel="noopener noreferrer" aria-label="Join Breeze FFA on Discord"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .079.009c.12.099.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg><span>Join</span></a></div><h3>Breeze FFA</h3><p>Screen-sharing staff</p></article><article class="role"><div class="rolehead"><span class="status">SS'er</span><a class="join" href="https://discord.gg/N3ySMecBD" target="_blank" rel="noopener noreferrer" aria-label="Join Combat tiers on Discord"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .079.009c.12.099.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg><span>Join</span></a></div><h3>Combat tiers</h3><p>Screen-sharing staff</p></article><article class="role"><div class="rolehead"><span class="status">SS'er</span><a class="join" href="https://discord.gg/HH8dJ54fU" target="_blank" rel="noopener noreferrer" aria-label="Join Bedrock modify on Discord"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .079.009c.12.099.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg><span>Join</span></a></div><h3>Bedrock modify</h3><p>Screen-sharing staff</p></article></div></section>
 <section class="section" id="music">
@@ -492,5 +513,55 @@ updateClock();
 setInterval(updateClock, 1000);
 
 loadTrack(0, false);
+
+// --- highlight current section in the top bar
+(function navSpy() {
+  const links = [...document.querySelectorAll('.nav a[href^="#"]')];
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(a => { a.classList.remove('active'); a.removeAttribute('aria-current'); });
+      const a = map.get(e.target.id);
+      if (a) { a.classList.add('active'); a.setAttribute('aria-current', 'true'); }
+    });
+  }, { rootMargin: '-35% 0px -55% 0px' });
+  map.forEach((a, id) => { const el = document.getElementById(id); if (el) io.observe(el); });
+})();
+
+
+// --- Live Discord presence (via Lanyard) ---
+(function presence() {
+  const ID = '1316444904448327783', box = $('presence');
+  if (!box) return;
+  const labels = { online: 'Online', idle: 'Idle', dnd: 'Do not disturb', offline: 'Offline' };
+  function render(d) {
+    const st = d.discord_status || 'offline';
+    $('pdot').className = 'pdot ' + st;
+    safeText($('pstatus'), labels[st] || 'Offline');
+    let line = '';
+    const acts = d.activities || [];
+    if (d.listening_to_spotify && d.spotify) {
+      line = 'Listening to ' + (d.spotify.song || d.spotify.track_name) + ' by ' + String(d.spotify.artist || d.spotify.artist_name || '').replaceAll(';', ',');
+    } else {
+      const game = acts.find(a => a.type === 0);
+      const custom = acts.find(a => a.type === 4 && a.state);
+      if (game) line = 'Playing ' + game.name + (game.details ? ' · ' + game.details : '');
+      else if (custom) line = custom.state;
+    }
+    const act = $('pact');
+    act.textContent = line; act.hidden = !line;
+    box.hidden = false;
+    $('handleFallback').hidden = true;
+  }
+  async function poll() {
+    try {
+      const j = await (await fetch('https://api.lanyard.rest/v1/users/' + ID)).json();
+      if (j.success) render(j.data); else { box.hidden = true; $('handleFallback').hidden = false; }
+    } catch (e) { box.hidden = true; $('handleFallback').hidden = false; }
+  }
+  poll(); setInterval(poll, 30000);
+})();
+
 </script>
 </body></html>
