@@ -292,14 +292,10 @@ footer{font:500 12px Manrope,sans-serif;letter-spacing:0;margin-top:56px;padding
 @media(max-width:720px){.topbar{height:52px;padding:0 8px 0 14px;top:8px;margin-top:8px}.nav{gap:0}.nav a{padding:7px 9px}.nav a.navcta{display:none}}
 @media(max-width:430px){.nav a{padding:7px 7px}}
 
-/* ===== Server icons in Experience rows ===== */
-.role{grid-template-columns:auto 1fr auto;column-gap:16px}
-.sicon{grid-column:1;grid-row:1/3;width:46px;height:46px;border-radius:13px;display:grid;place-items:center;overflow:hidden;background:#a78bfa22;border:1px solid #a78bfa44;box-shadow:2px 2px 0 #6f50d866;color:#d9d0ff;font:600 19px var(--px)}
-.sicon img{width:100%;height:100%;object-fit:cover;display:block}
-.role h3{grid-column:2;grid-row:1;align-self:end}.role p{grid-column:2;grid-row:2;align-self:start}
-.rolehead{grid-column:3}
-@media(max-width:720px){.sicon{width:40px;height:40px;border-radius:11px}.role{column-gap:12px}}
-.sicon.has-img{background:#0d0b18;border-color:#ffffff1f}
+/* ===== Experience rows layout ===== */
+.role{grid-template-columns:1fr auto;column-gap:16px}
+.role h3{grid-column:1;grid-row:1;align-self:end}.role p{grid-column:1;grid-row:2;align-self:start}
+.rolehead{grid-column:2;grid-row:1/3}
 </style></head>
 <body>
 <div id="intro" role="dialog" aria-modal="true" aria-labelledby="introTitle"><div class="introbox"><div class="introhead"><div class="sectionlabel">MUSIC</div></div><h2 id="introTitle">Choose a song</h2><p class="desc">Select a track, then enter the site to start playing.</p><div class="listtools"><span>Choose a track</span><button class="shuffle" id="introShuffle" type="button">Random</button></div><input class="search intro-search" id="introTrackSearch" type="search" placeholder="Search songs..." aria-label="Search songs"><div class="introtracks" id="introTrackList" aria-label="Choose a song"></div><button class="btn light enter" id="enter">Enter site</button><div class="introfoot">SELECT A SONG · THEN PRESS ENTER</div></div></div>
@@ -522,23 +518,6 @@ updateClock();
 setInterval(updateClock, 1000);
 
 loadTrack(0, false);
-
-// --- Server icons (local files in /servers; falls back to the first letter)
-(function serverIcons() {
-  const files = { 'breeze ffa': 'breeze-ffa', 'combat tiers': 'combat-tiers', 'bedrock modify': 'bedrock-modify' };
-  document.querySelectorAll('.role').forEach(role => {
-    const name = role.querySelector('h3')?.textContent.trim() || '?';
-    const ic = document.createElement('span');
-    ic.className = 'sicon'; ic.setAttribute('aria-hidden', 'true'); ic.textContent = name[0].toUpperCase();
-    role.prepend(ic);
-    const f = files[name.toLowerCase()];
-    if (!f) return;
-    const img = new Image(); img.alt = '';
-    img.onload = () => { ic.textContent = ''; ic.classList.add('has-img'); ic.appendChild(img); };
-    img.src = 'servers/' + f + '.png';
-  });
-})();
-
 
 // --- highlight current section in the top bar
 (function navSpy() {
