@@ -440,11 +440,6 @@ for (let i = TRACKS.length - 1; i > 0; i--) {
   const j = Math.floor(Math.random() * (i + 1));
   [TRACKS[i], TRACKS[j]] = [TRACKS[j], TRACKS[i]];
 }
-// always start with National Treasures
-{
-  const k = TRACKS.findIndex(t => t.src.endsWith('national-treasures.mp3'));
-  if (k > 0) TRACKS.unshift(TRACKS.splice(k, 1)[0]);
-}
 const $ = id => document.getElementById(id);
 const audio = $('audio');
 let currentTrackIndex = 0, shuffleOn = false, repeatOne = false;
